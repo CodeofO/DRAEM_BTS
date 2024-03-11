@@ -1,4 +1,5 @@
 # DRAEM : A discriminatively trained reconstruction embedding for surface anomaly detection
+(정리중...)
 
 Topic: 결함 탐지, 컴퓨터 비전
 Year: 2021
