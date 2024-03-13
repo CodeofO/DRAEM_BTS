@@ -138,18 +138,14 @@ The reconstructive sub-network is trained to implicitly detect and reconstruct t
     | --- | --- |
     | Output | reconstructed 된 정상 |
     | What is trained | noise(가상결함)을 정상으로 복원하는 것 |
-    | Evaluate cost
-    (L2 + SSIM loss) | reconstruction loss(Target과 Output으로 계산됨)
-    ⇒ 최소화 하는 것이 목표 |
+    | Evaluate cost<br>(L2 + SSIM loss) | reconstruction loss(Target과 Output으로 계산됨)<br>👉 최소화 하는 것이 목표 |
 2. **Classification** 
     
     
     | input | raw 비정상 |
     | --- | --- |
     | output | 정상으로 reconstructed 된 비정상 |
-    | Classification | anomalies를 정상부위로 바꿈으로서
-    ⇒ reconstruction loss 높아짐
-    ⇒ 결함 판별 |
+    | Classification | anomalies를 정상부위로 바꿈으로서<br>👉 reconstruction loss 높아짐<br>👉 결함 판별 |
     
 
 ## 2) **The discriminative sub-network**
@@ -178,10 +174,10 @@ Focal Loss($L_{seg}$) is applied on the discriminative sub-network output `to in
 | $\alpha$ | 전체적인 Loss 값을 조절하는 값 |
 | --- | --- |
 | $(1 - p_t)^\gamma$ | $\gamma \geq 0$ 의 값을 조절해야 좋은 성능 얻을 수 있음 |
-| $\gamma$ | focusing parameter,
-Easy Example에 대한 Loss의 비중을 낮추는 역할 |
+| $\gamma$ | focusing parameter,<br>Easy Example에 대한 Loss의 비중을 낮추는 역할 |
 ![Untitled 6](https://github.com/CodeofO/DRAEM_BTS/assets/99871109/8491e80f-7c5a-46b4-83b1-eacecd3af74a)
 <br>
+
 $\lambda = 0$ : Cross entropy loss와 같음
 
 ### Total Loss
