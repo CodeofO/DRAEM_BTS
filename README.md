@@ -1,4 +1,4 @@
-# DRAEM : A discriminatively trained reconstruction embedding for surface anomaly detection
+![Untitled 9](https://github.com/CodeofO/DRAEM_BTS/assets/99871109/b0679645-c8d5-4a25-a0a5-17dbf839ea6d)# DRAEM : A discriminatively trained reconstruction embedding for surface anomaly detection
 
 Topic: 결함 탐지, 컴퓨터 비전
 Year: 2021
@@ -106,15 +106,13 @@ Reconstructive subspace =  … 여기는 조금 더 이해가 필요함
 …
 
 # 3. DREAM
-
-![The anomaly detection process of the proposed method](DRAEM%20A%20discriminatively%20trained%20reconstruction%20em%20fa67738779b04c65bc51a885f3fdb3d5/Untitled.png)
-
+![Untitled](https://github.com/CodeofO/DRAEM_BTS/assets/99871109/54277cb9-8f0e-47a4-a284-2bafb8b7351a)
+<br>
 The anomaly detection process of the proposed method
 
 ## 1) **The reconstructive Sub network**
-
-![Untitled](DRAEM%20A%20discriminatively%20trained%20reconstruction%20em%20fa67738779b04c65bc51a885f3fdb3d5/Untitled%201.png)
-
+![Untitled 1](https://github.com/CodeofO/DRAEM_BTS/assets/99871109/9683bc64-e4ce-432a-b5f6-8029f27fce1b)
+<br>
 The reconstructive sub-network is trained to implicitly detect and reconstruct the anomalies with semantically plausible anomaly-free content, while keeping the non-anomalous regions of the input image unchanged.
 
 | $I$ | original image |
@@ -127,17 +125,17 @@ The reconstructive sub-network is trained to implicitly detect and reconstruct t
     - 주어진 2개의 이미지의 `similarity(유사도)`를 계산하는 측도로 사용
     - `SSIM`은 두 이미지의 단순 유사도를 측정하는데 사용
     - 두 이미지가 유사해지도록 만들어야 되는 문제일 때 `SSIM`을 Loss Function 형태로 사용하기도 합니다. 왜냐하면 `SSIM`이 gradient-based로 구현되어 있기 때문입니다.
-    
-    ![Untitled](DRAEM%20A%20discriminatively%20trained%20reconstruction%20em%20fa67738779b04c65bc51a885f3fdb3d5/Untitled%202.png)
-    
+    ![Untitled 2](https://github.com/CodeofO/DRAEM_BTS/assets/99871109/b65fc501-610e-441f-8a4c-11045f699d74)
+    <br>
+
     | $H, W$ | 이미지 $I$의 높이 넓이 |
     | --- | --- |
     | $N_p$ | 이미지 $I$의 pixel 수 |
     | $I_r$ | reconstructed  $I$(output) |
     | $SSIM(I, I_r)_{(i, j)}$ | SSIM value for patch of $I$ and $I_r$ |
 2. **The reconstruction loss**
-    
-    ![Untitled](DRAEM%20A%20discriminatively%20trained%20reconstruction%20em%20fa67738779b04c65bc51a885f3fdb3d5/Untitled%203.png)
+    ![Untitled 3](https://github.com/CodeofO/DRAEM_BTS/assets/99871109/3cf67455-443e-496c-8248-73edd1e59fbe)
+    <br>
     
     | $\lambda$ | loss balancing hyper-parameter |
     | --- | --- |
@@ -166,8 +164,7 @@ The reconstructive sub-network is trained to implicitly detect and reconstruct t
     
 
 ## 2) **The discriminative sub-network**
-
-![Untitled](DRAEM%20A%20discriminatively%20trained%20reconstruction%20em%20fa67738779b04c65bc51a885f3fdb3d5/Untitled%204.png)
+![Untitled 4](https://github.com/CodeofO/DRAEM_BTS/assets/99871109/a857b46a-2a86-4feb-8c3a-4cbe45ed352d)
 
 the discriminative sub-network learns a joint reconstruction-anomaly embedding and produces accurate anomaly segmentation maps from the concatenated reconstructed and original appearance.
 
@@ -186,23 +183,21 @@ Focal Loss($L_{seg}$) is applied on the discriminative sub-network output `to in
 
 `Focal Loss`는 Easy Example의 weight를 줄이고 `Hard Negative Example`에 대한 학습에 초점을 맞추는 Cross Entropy Loss 함수의 확장판이다.
 
-⇒ data imbalanceing
-
-![Untitled](DRAEM%20A%20discriminatively%20trained%20reconstruction%20em%20fa67738779b04c65bc51a885f3fdb3d5/Untitled%205.png)
+👉  data imbalanceing
+![Untitled 5](https://github.com/CodeofO/DRAEM_BTS/assets/99871109/21b032b7-a705-43f6-a1a9-441ac2ee3189)
 
 | $\alpha$ | 전체적인 Loss 값을 조절하는 값 |
 | --- | --- |
 | $(1 - p_t)^\gamma$ | $\gamma \geq 0$ 의 값을 조절해야 좋은 성능 얻을 수 있음 |
 | $\gamma$ | focusing parameter,
 Easy Example에 대한 Loss의 비중을 낮추는 역할 |
-
-![Untitled](DRAEM%20A%20discriminatively%20trained%20reconstruction%20em%20fa67738779b04c65bc51a885f3fdb3d5/Untitled%206.png)
-
+![Untitled 6](https://github.com/CodeofO/DRAEM_BTS/assets/99871109/8491e80f-7c5a-46b4-83b1-eacecd3af74a)
+<br>
 $\lambda = 0$ : Cross entropy loss와 같음
 
 ### Total Loss
-
-![Untitled](DRAEM%20A%20discriminatively%20trained%20reconstruction%20em%20fa67738779b04c65bc51a885f3fdb3d5/Untitled%207.png)
+![Untitled 7](https://github.com/CodeofO/DRAEM_BTS/assets/99871109/38e6dfa4-309f-4243-90af-6bc181562554)
+<br>
 
 | $M_a$ | ground truth |
 | --- | --- |
@@ -211,8 +206,7 @@ $\lambda = 0$ : Cross entropy loss와 같음
 ## 3) Simulated anomaly generation
 
 ### A noise image
-
-![Figure 4. Simulated anomaly generation process. The binary anomaly mask Ma is generated from Perlin noise P . The anomalous regions are sampled from A according to Ma and placed on the anomaly free image I to generate the anomalous image $I_a$.](DRAEM%20A%20discriminatively%20trained%20reconstruction%20em%20fa67738779b04c65bc51a885f3fdb3d5/Untitled%208.png)
+![Untitled 8](https://github.com/CodeofO/DRAEM_BTS/assets/99871109/c985c7a8-da2e-4096-88ca-be21e5d9916b)
 
 Figure 4. Simulated anomaly generation process. The binary anomaly mask Ma is generated from Perlin noise P . The anomalous regions are sampled from A according to Ma and placed on the anomaly free image I to generate the anomalous image $I_a$.
 
@@ -234,21 +228,18 @@ The anomaly texture source image A is sampled from an anomaly source image datas
 
  {*posterize, sharpness, solarize, equalize, brightness change, color change, auto-contrast*} 중 3개가 랜덤으로 적용되어 Augmentation 된다.
 
-이렇게 Augmented 된 texture image $A$는 the anomaly map $M_a$ 에 마스킹 된 후 $I$ 위에 합성된다. 
-
+이렇게 Augmented 된 texture image $A$는 the anomaly map $M_a$ 에 마스킹 된 후 $I$ 위에 합성된다. <br>
 = $I_a$
-
-![Untitled](DRAEM%20A%20discriminatively%20trained%20reconstruction%20em%20fa67738779b04c65bc51a885f3fdb3d5/Untitled%209.png)
+![Untitled 9](https://github.com/CodeofO/DRAEM_BTS/assets/99871109/dcac682c-25e6-4362-8992-73bbe278493f)
 
 | $\overline{M}_a$ | inverse of $M_a$ |
 | --- | --- |
 | $\odot$ | the element-wise multiplication operation  |
-| $\beta$ | the opacity parameter in blending.
-sampled uniforms from an interval , $i.e., \beta \in [0.1, 1.0]$ |
+| $\beta$ | the opacity parameter in blending.<br> sampled uniforms from an interval , $i.e., \beta \in [0.1, 1.0]$ |
 
 ## 3.4 Surface anomaly localization and detection
+![Untitled 10](https://github.com/CodeofO/DRAEM_BTS/assets/99871109/5c30e04a-6879-4123-bf91-2239704b0b0a)
 
-![Untitled](DRAEM%20A%20discriminatively%20trained%20reconstruction%20em%20fa67738779b04c65bc51a885f3fdb3d5/Untitled%2010.png)
 
 1. **Local Average Pooling**
     
@@ -260,16 +251,13 @@ sampled uniforms from an interval , $i.e., \beta \in [0.1, 1.0]$ |
 3. **Compute anomaly score map**
     
     The final image-level anomaly score $\eta$ is computed by taking the maximum value of the smoothed anomaly score map:
-    
-    ![Untitled](DRAEM%20A%20discriminatively%20trained%20reconstruction%20em%20fa67738779b04c65bc51a885f3fdb3d5/Untitled%2011.png)
-    
-    | $f_{(s_f \times s_f)}$ | a mean filter of size $s_f \times s_f$
-    = Local Average Pooling 레이어의 필터 크기 |
+    ![Untitled 11](https://github.com/CodeofO/DRAEM_BTS/assets/99871109/2768cfd8-248a-4c04-bf12-a2153c96d65f)
+
+        
+    | $f_{(s_f \times s_f)}$ | a mean filter of size $s_f \times s_f$ <br> = Local Average Pooling 레이어의 필터 크기 |
     | --- | --- |
     | $*$ | the convolution operator  |
-    
-    [](https://github.com/VitjanZ/DRAEM/blob/main/test_DRAEM.py)
-    
+        
     ```python
     out_mask_averaged = torch.nn.functional.avg_pool2d(out_mask_sm[: ,1: ,: ,:], 21, stride=1,
                                                      padding=21 // 2).cpu().detach().numpy()
@@ -303,7 +291,6 @@ sampled uniforms from an interval , $i.e., \beta \in [0.1, 1.0]$ |
 </aside>
 
 # 4. Experiments
-
-![Figure 8. Qualitative examples. The original image, the anomaly map overlay, the anomaly map and the ground truth map are shown.](DRAEM%20A%20discriminatively%20trained%20reconstruction%20em%20fa67738779b04c65bc51a885f3fdb3d5/Untitled%2012.png)
+![Untitled 12](https://github.com/CodeofO/DRAEM_BTS/assets/99871109/829782f8-f548-421f-9e3f-a6fa5937c4c1)
 
 Figure 8. Qualitative examples. The original image, the anomaly map overlay, the anomaly map and the ground truth map are shown.
