@@ -67,7 +67,7 @@ by thresholding the difference between `the input image` and `its reconstruction
 
     **💡 the deep subspace**
     
-    as forming such a compact subspace `prevents anomalies from being mapped close to anomaly-free samples.`
+        as forming such a compact subspace `prevents anomalies from being mapped close to anomaly-free samples.`
     
     </aside>
     
