@@ -64,7 +64,8 @@ by thresholding the difference between `the input image` and `its reconstruction
 : Discrimination can also be formulated as a `deviation from a dense clustering of non-anomalous textures` within the deep subspace
     
     <aside>
-    💡 **the deep subspace**
+
+    **💡 the deep subspace**
     
     as forming such a compact subspace `prevents anomalies from being mapped close to anomaly-free samples.`
     
