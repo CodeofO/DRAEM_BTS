@@ -175,6 +175,7 @@ Focal Loss($L_{seg}$) is applied on the discriminative sub-network output `to in
 | --- | --- |
 | $(1 - p_t)^\gamma$ | $\gamma \geq 0$ 의 값을 조절해야 좋은 성능 얻을 수 있음 |
 | $\gamma$ | focusing parameter,<br>Easy Example에 대한 Loss의 비중을 낮추는 역할 |
+<br>
 ![Untitled 6](https://github.com/CodeofO/DRAEM_BTS/assets/99871109/8491e80f-7c5a-46b4-83b1-eacecd3af74a)
 <br>
 
