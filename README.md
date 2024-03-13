@@ -1,4 +1,4 @@
-![Untitled 9](https://github.com/CodeofO/DRAEM_BTS/assets/99871109/b0679645-c8d5-4a25-a0a5-17dbf839ea6d)# DRAEM : A discriminatively trained reconstruction embedding for surface anomaly detection
+# DRAEM : A discriminatively trained reconstruction embedding for surface anomaly detection
 
 Topic: 결함 탐지, 컴퓨터 비전
 Year: 2021
