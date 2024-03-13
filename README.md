@@ -75,15 +75,6 @@ by thresholding the difference between `the input image` and `its reconstruction
 
 We hypothesize that over-fitting can be substantially reduced `by training a discriminative model over the joint, reconstructed and original, appearance` along with the `reconstruction subspace`.
 
-<aside>
-💡 ???
-
-Reconstructive subspace =  … 여기는 조금 더 이해가 필요함
-
-</aside>
-
-이 가설은 과적합(over-fitting)을 크게 줄일 수 있다고 주장합니다. 이를 위해 원래의 외형(appearance)과 재구성된 외형, 그리고 재구성 공간(subspace)에 대한 판별 모델(discriminative model)을 훈련시킵니다. 이 방법을 통해 모델은 합성 외형(synthetic appearance)에 과적합되지 않고, 원래의 외형과 재구성된 외형 사이의 '지역 외형에 의존한 거리 함수(local-appearance-conditioned distance function)'를 학습합니다. 이러한 방식은 다양한 실제 이상 현상(real anomalies)에 잘 일반화됩니다. 이 내용은 Figure 2의 하단 부분에서도 확인할 수 있습니다.
-
 간단히 말해, 모델은 원래 데이터와 그 데이터의 재구성 버전 사이의 '거리'를 학습하여, 이를 통해 실제 세계에서 다양한 이상 현상을 더 잘 이해하고 분류할 수 있게 됩니다. 이렇게 하면 모델이 합성 데이터에 과적합되는 문제를 피할 수 있습니다.
 
 # 2. Related work
